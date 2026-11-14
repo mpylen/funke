@@ -1,14 +1,17 @@
-# Render: "New → Blueprint" mit diesem Repo. Persistente Disk braucht einen bezahlten Plan (starter).
+# Render Blueprint – FREE-Testversion.
+# Achtung: Free hat keine Disk. Die Datenbank liegt im flüchtigen Speicher und ist nach
+# jedem Neustart/Deploy und nach ca. 15 Min. Leerlauf (Ruhemodus) LEER. Nur zum Ausprobieren.
+# Für echte Nutzer: plan auf "starter" setzen, die disk-Zeile einkommentieren, DB_PATH auf /data/funke.db.
 services:
   - type: web
     name: funke
     runtime: docker
-    plan: starter
+    plan: free
     region: frankfurt
     healthCheckPath: /healthz
-    disk: { name: funke-data, mountPath: /data, sizeGB: 1 }
+    # disk: { name: funke-data, mountPath: /data, sizeGB: 1 }
     envVars:
-      - { key: DB_PATH, value: /data/funke.db }
+      - { key: DB_PATH, value: /tmp/funke.db }
       - { key: COOKIE_SECURE, value: "1" }
       - { key: TRUST_PROXY, value: "1" }
       - { key: ADMIN_TOKEN, generateValue: true }
