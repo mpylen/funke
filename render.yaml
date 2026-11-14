@@ -1,0 +1,14 @@
+# Render: "New → Blueprint" mit diesem Repo. Persistente Disk braucht einen bezahlten Plan (starter).
+services:
+  - type: web
+    name: funke
+    runtime: docker
+    plan: starter
+    region: frankfurt
+    healthCheckPath: /healthz
+    disk: { name: funke-data, mountPath: /data, sizeGB: 1 }
+    envVars:
+      - { key: DB_PATH, value: /data/funke.db }
+      - { key: COOKIE_SECURE, value: "1" }
+      - { key: TRUST_PROXY, value: "1" }
+      - { key: ADMIN_TOKEN, generateValue: true }

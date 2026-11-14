@@ -1,0 +1,9 @@
+{
+  "name": "funke",
+  "version": "1.0.0-rc1",
+  "private": true,
+  "description": "Funke – Dating, das zuhört (Release-Kandidat)",
+  "engines": { "node": ">=22.5" },
+  "scripts": { "start": "node --no-warnings server/server.js", "test": "node --test test/api.test.js" },
+  "license": "UNLICENSED"
+}
