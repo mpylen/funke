@@ -14,7 +14,7 @@ const cfg = {
   admin: process.env.ADMIN_TOKEN || '',
   secure: process.env.COOKIE_SECURE === '1',
   trustProxy: process.env.TRUST_PROXY === '1',
-  baseUrl: (process.env.BASE_URL || '').replace(/\/$/, ''),
+  baseUrl: (process.env.BASE_URL || process.env.RENDER_EXTERNAL_URL || '').replace(/\/$/, ''),
   picksAnytime: process.env.PICKS_ANYTIME === '1',
   plus: process.env.PLUS_ENABLED === '1',
   publicDir: path.join(__dirname, '..', 'public')
